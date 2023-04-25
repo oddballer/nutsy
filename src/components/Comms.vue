@@ -28,10 +28,10 @@ export default {
     },
 
     setAudioInputs() {
-      audioInputs = this.getConnectedDevices('audioinput', (microphones) =>
+      this.audioInputs = this.getConnectedDevices('audioinput', (microphones) =>
         console.log('Microphones found', microphones)
       )
-      for (let input in audioInputs) {
+      for (let input in this.audioInputs) {
         console.log(input.label)
       }
       console.log('Devices Set')
@@ -43,8 +43,6 @@ export default {
   },
 
   mounted() {
-
-    let audioInputs = []
 
     const constraints = {
       video: false,
