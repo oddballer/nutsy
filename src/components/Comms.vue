@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      audioInputs: reactive([]),
+      audioInputs: [],
     }
   },
 
@@ -23,18 +23,15 @@ export default {
       navigator.mediaDevices.enumerateDevices().then((devices) => {
         const filtered = devices.filter((device) => device.kind === type)
         callback(filtered)
+        this.audioInputs = filtered
         
       })
     },
 
     setAudioInputs() {
-      audioInputs = this.getConnectedDevices('audioinput', (microphones) =>
+      return this.getConnectedDevices('audioinput', (microphones) =>
         console.log('Microphones found', microphones)
       )
-      for (let input in audioInputs) {
-        console.log(input.label)
-      }
-      console.log('Devices Set')
     }
   },
 
@@ -43,7 +40,6 @@ export default {
   },
 
   created() {
-
     const constraints = {
       video: false,
       audio: true
