@@ -14,7 +14,7 @@
 export default {
   data() {
     return {
-      audioInputs: [],
+      audioInputs: reactive([]),
     }
   },
 
@@ -28,10 +28,10 @@ export default {
     },
 
     setAudioInputs() {
-      this.audioInputs = this.getConnectedDevices('audioinput', (microphones) =>
+      audioInputs = this.getConnectedDevices('audioinput', (microphones) =>
         console.log('Microphones found', microphones)
       )
-      for (let input in this.audioInputs) {
+      for (let input in audioInputs) {
         console.log(input.label)
       }
       console.log('Devices Set')
