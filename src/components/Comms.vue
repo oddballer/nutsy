@@ -42,7 +42,7 @@ export default {
     
   },
 
-  mounted() {
+  created() {
 
     const constraints = {
       video: false,
