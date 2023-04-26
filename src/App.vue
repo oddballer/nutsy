@@ -21,7 +21,7 @@ import Comms from './components/Comms.vue';
   
   <footer>
     <Comms/>
-    <audio src="/Akanon.mp3" type="audio/mpeg" autoplay loop></audio>
+    <audio src="https://audio.jukehost.co.uk/FUx1r78wxSbDlsaZ1KJajh2PZaBA46fK" type="audio/mpeg" autoplay loop></audio>
   </footer>
 </template>
 
