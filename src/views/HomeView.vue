@@ -6,3 +6,15 @@ import TheWelcome from '../components/TheWelcome.vue'
   <main>
   </main>
 </template>
+
+<script>
+</script>
+
+<style>
+
+main {
+    height: 100%;
+   
+}
+
+</style>

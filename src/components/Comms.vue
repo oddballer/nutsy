@@ -1,12 +1,12 @@
 <template>
-  <div>
+  <div id="comms">
     <div class="dropdown">
       <button class="dropbtn" v-on:click="setAudioInputs">Audio Input</button>
-      <div class="dropdown-content">
-        <label v-for="input in audioInputs" v-bind:key="input.label"></label>
-      </div>
+      <select class="dropdown-content">
+        <option value={{input.label}} v-for="input in audioInputs" v-bind:key="input.label"></option>
+      </select>
     </div>
-    <img src="/voice.png" alt="mic" width="32" height="32" />
+    <img id="micImg" src="/voice.png" alt="mic" width="32" height="32" />
   </div>
 </template>
 
@@ -61,6 +61,16 @@ export default {
 </script>
 
 <style>
+#micImg {
+  margin-left: 4px;
+}
+
+#comms {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .dropbtn {
   background-color: hsl(348, 72%, 55%);
   color: white;
