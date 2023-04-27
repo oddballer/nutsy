@@ -1,31 +1,40 @@
 <script setup>
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
 import Comms from './components/Comms.vue';
 </script>
 
 <template>
-  <nav>
+  <div id="topper">
+    <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/dev">Dev</RouterLink>
-  </nav>
-  <header>
-    <img alt="nutsy logo" class="logo" src="https://static.wikia.nocookie.net/finalfantasy/images/3/33/ClanNutsy.png" width="240" height="160" />
-
-    <div class="wrapper">
-      
-    </div>
-  </header>
+    </nav>
+    <header>
+      <img alt="nutsy logo" class="logo" src="https://static.wikia.nocookie.net/finalfantasy/images/3/33/ClanNutsy.png" width="240" height="160" />
+    </header>
+  </div>
+  
 
   <RouterView id="view"/>
   
   <footer>
     <Comms/>
-    <audio src="https://audio.jukehost.co.uk/FUx1r78wxSbDlsaZ1KJajh2PZaBA46fK" type="audio/mpeg" autoplay loop></audio>
+    <audio id="music" src="https://audio.jukehost.co.uk/FUx1r78wxSbDlsaZ1KJajh2PZaBA46fK" type="audio/mpeg" autoplay loop></audio>
   </footer>
 </template>
 
 <style>
+#topper{
+  grid-area: topper;
+  height: fit-content;
+}
+
+.logo{
+  border-left: 8px ridge lightgray;  
+  border-right: 8px ridge lightgray;
+
+
+}
 
 body {
   margin: 0;
@@ -37,21 +46,20 @@ body {
   background-image: url("/water.gif");
   height: 100%;
   display: grid;
-  justify-content: center;
-  align-content: space-around;
-  grid-template-columns: 1fr 3fr 1fr;
+  align-items: center;
+  grid-template-columns: 1fr 4fr 1fr;
   grid-template-areas:
-  ". nav ."
-  ". header ."
+  ". topper ."
   ". main ."
   ". footer .";
 
 }
 
 header {
+  height: fit-content;
   grid-area: header;
   display: flex;
-  align-content: center;
+  align-items: center;
   justify-content: center;
   border: 8px ridge lightgray;
 }
@@ -73,9 +81,12 @@ footer {
 
 nav {
   grid-area: nav;
-  width: 100%;
+  height: 25px;
   font-size: 12px;
   text-align: center;
+  font: italic 1.2em "Fira Sans", serif;
+  border: 8px ridge lightgray;
+  background-color: #91d0d8;
 }
 
 nav a.router-link-exact-active {
@@ -106,7 +117,20 @@ export default {
 }
 
 
+},
+
+mounted(){
+
+let z = document.getElementsByTagName("main");
+window.addEventListener('mousemove', (event)=> {
+  let x = document.getElementById("music"); 
+  x.play(); 
+})
+
+
+
 }
+
 }
 
 </script>
