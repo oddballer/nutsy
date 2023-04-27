@@ -18,12 +18,20 @@ import Comms from './components/Comms.vue';
   <RouterView id="view"/>
   
   <footer>
-    <Comms/>
+    <a href="https://www.gamefaqs.com">
+      <img src="/bar2001.gif" alt="gameFaqs"></a>
     <audio id="music" src="https://audio.jukehost.co.uk/FUx1r78wxSbDlsaZ1KJajh2PZaBA46fK" type="audio/mpeg" autoplay loop></audio>
+    <a href="https://www.hitwebcounter.com" target="_blank">
+      <img src="https://hitwebcounter.com/counter/counter.php?page=8523078&style=0040&nbdigits=5&type=page&initCount=0" title="Free Counter" Alt="web counter"/></a>  
+    <img src="/clickconf.gif" alt="esrb" id="esrb" v-on:click="say('thank you for confirming your privacy')">
   </footer>
 </template>
 
 <style>
+#esrb:hover{
+  cursor: pointer;
+}
+
 #topper{
   grid-area: topper;
   height: fit-content;
@@ -73,8 +81,8 @@ header {
 footer {
   grid-area: footer;
   display: flex;
-  align-content: center;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-around;
   border: 8px ridge lightgray;
 
 }
@@ -129,6 +137,12 @@ window.addEventListener('mousemove', (event)=> {
 
 
 
+},
+
+methods: {
+  say(message) {
+    alert(message)
+  }
 }
 
 }
