@@ -4,7 +4,7 @@ import Chat from '../components/Chat.vue'
 
 <template>
   <main>
-    <Chat id="chatWindow"/>
+    <Chat/>
   </main>
 </template>
 
@@ -15,11 +15,7 @@ import Chat from '../components/Chat.vue'
 
 main {
     height: 100%;
-   
-}
-
-chatWindow{
-  overflow: scroll;
+    overflow-y: scroll;
 }
 
 </style>
