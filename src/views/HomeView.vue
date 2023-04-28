@@ -1,9 +1,10 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import Chat from '../components/Chat.vue'
 </script>
 
 <template>
   <main>
+    <Chat id="chatWindow"/>
   </main>
 </template>
 
@@ -15,6 +16,10 @@ import TheWelcome from '../components/TheWelcome.vue'
 main {
     height: 100%;
    
+}
+
+chatWindow{
+  overflow: scroll;
 }
 
 </style>
