@@ -16,7 +16,7 @@
                 <img id="saveImg" src="/floppy.png" alt="saveBtn" height="24" width="24">
             </button>
         </form>
-    <audio id="loadSfx" src="/000017e4.wav"></audio>
+    <audio id="loadSfx" src="https://audio.jukehost.co.uk/m5mH7M1xzybl0GdKTlJJtwC6yl8d9DgW"></audio>
 </div>
     
 </template>

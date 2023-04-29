@@ -22,7 +22,8 @@
         <div><button type="submit">Sign in</button></div>
       <router-link v-bind:to="{ name: 'register' }">i will tell you</router-link>
     </form>
-    <img id="loginImg" src="/dog.png" alt="a dog">
+    <img id="loginImg" src="/dog.png" alt="a dog" v-on:click="playBark">
+    <audio id="bark" src="https://audio.jukehost.co.uk/UScgVnfpLKU7mcBHmhINoRtinKxS2hiS"></audio>
   </div>
 </template>
 
@@ -73,8 +74,14 @@ export default {
           }
         });
     },
+    playBark(){
+    let x = document.getElementById("bark"); 
+
+      x.play(); 
+      
+    },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -98,5 +105,6 @@ h1{
   width: 200px;
   align-items: center;
   opacity: 0.75;
+  cursor: pointer;
 }
 </style>

@@ -32,8 +32,8 @@
         </div>
       <router-link v-bind:to="{ name: 'login' }">i am known here</router-link>
     </form>
-    <img id="registerImg" src="/dog2.png" alt="a dog">
-
+    <img id="registerImg" src="/dog2.png" alt="a dog" v-on:click="playBark">
+    <audio id="bark" src="https://audio.jukehost.co.uk/rOPSoOTFIBxlz6sFRtXwmVjs39df0i8o"></audio>
   </div>
 </template>
 
@@ -103,6 +103,12 @@ export default {
           });
       }
     },
+    playBark(){
+    let x = document.getElementById("bark"); 
+
+      x.play(); 
+      
+    },
   },
 };
 </script>
@@ -128,5 +134,6 @@ h1{
   width: 200px;
   align-items: center;
   opacity: 0.75;
+  cursor: pointer;
 }
 </style>
