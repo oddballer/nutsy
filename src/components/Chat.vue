@@ -120,6 +120,8 @@ grid-area: logcontent;
     grid-area: log;
     overflow-y: scroll;
     position: relative;
+    flex-direction: column-reverse;
+    display: flex;
     
 }
 #chatSubmit{
