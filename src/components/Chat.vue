@@ -86,7 +86,8 @@ font-size: 12px;
 text-align: left;
 font: italic 1.2em "Fira Sans", serif;
 /* border: 8px ridge lightgray; */
-padding: 5px;
+padding: 10px;
+padding-left: 20px;
 display: grid;
 grid-template-areas: 
 "loguser logcontent";

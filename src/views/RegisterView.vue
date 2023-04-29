@@ -2,33 +2,33 @@
   <div id="register">
     <h1>become</h1>
     <form id="registerForm" v-on:submit.prevent="register">
-        <label for="username">Username</label>
+        <label for="username">Alias</label>
         <input
           type="text"
           id="username"
-          placeholder="Username"
+          placeholder="Alias"
           v-model="user.username"
           required
           autofocus
         />
-        <label for="password">Password</label>
+        <label for="password">Authentication sequence</label>
         <input
           type="password"
           id="password"
-          placeholder="Password"
+          placeholder="Sequence"
           v-model="user.password"
           required
         />
-        <label for="confirmPassword">Confirm password</label>
+        <label for="confirmPassword">Confirm sequence</label>
         <input
           type="password"
           id="confirmPassword"
-          placeholder="Confirm Password"
+          placeholder="Confirm Sequence"
           v-model="user.confirmPassword"
           required
         />
         <div>
-          <button type="submit">Create Account</button>
+          <button type="submit">BECOME</button>
         </div>
       <router-link v-bind:to="{ name: 'login' }">i am known here</router-link>
     </form>
@@ -118,6 +118,8 @@ export default {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
   align-items: center;
+  justify-items: center;
+
 }
 #registerForm{
   display: flex;
@@ -126,14 +128,17 @@ export default {
   justify-content: center;
 }
 h1{
-  margin-left: 33%;
+  width: fit-content;
 }
 #registerImg{
-  margin-right: 33%;
   height: 300px;
   width: 200px;
   align-items: center;
   opacity: 0.75;
   cursor: pointer;
+}
+input, button{
+  margin-bottom: 5%;
+  text-align: center;
 }
 </style>
