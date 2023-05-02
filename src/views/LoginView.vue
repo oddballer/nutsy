@@ -59,7 +59,7 @@ export default {
         .then((response) => {
           if (response.status == 200) {
             this.authStore.SET_AUTH_TOKEN(response.data.token);
-            this.authStore.SET_USER(response.data.token);
+            this.authStore.SET_USER(response.data.user);
             this.$router.push("/");
           }
         })

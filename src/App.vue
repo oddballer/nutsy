@@ -106,7 +106,6 @@ footer {
   border: 8px ridge lightgray;
   justify-content: center;
   width: 100%;
-
 }
 
 #bottom {

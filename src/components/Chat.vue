@@ -23,7 +23,17 @@
 
 <script>
 import ChatService from '../services/ChatService';
+import { useAuthenticationStore } from '../stores/AuthenticationStore'
+
 export default {
+
+    setup(){
+    const authStore = useAuthenticationStore()
+    return {
+      authStore
+    }
+  },
+
     data() {
     return {
       isLoading: false,
@@ -45,6 +55,13 @@ export default {
                 this.isLoading = false;
                 const message = "Could not retrieve chat history from server.";
                 console.error(message);
+
+                if (error.response.status == 401) {
+                    this.authStore.SET_AUTH_TOKEN('');
+                    this.authStore.SET_USER('');
+                    this.$router.push("/");
+                }
+
             })
         },
 
