@@ -121,7 +121,6 @@ footer {
   align-items: center;
   border: 8px ridge lightgray;
   justify-content: center;
-  width: 100vw;
 }
 
 
