@@ -59,7 +59,7 @@ export default {
                 if (error.response.status == 401) {
                     this.authStore.SET_AUTH_TOKEN('');
                     this.authStore.SET_USER('');
-                    this.$router.push("/");
+                    this.$router.push("/login");
                 }
 
             })

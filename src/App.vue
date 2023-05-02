@@ -36,6 +36,21 @@
 </template>
 
 <style>
+/* not working, diff way to read device width in vuejs? */
+
+/* @media screen and (min-width: 768) {
+  footer > img {
+  width: 20%;
+}
+footer {
+  display: flex;
+  align-items: center;
+  border: 8px ridge lightgray;
+  justify-content: center;
+  width: 55vw;
+}
+} */
+
 #esrb:hover{
   cursor: pointer;
 }
@@ -55,6 +70,7 @@
 
 body {
   margin: 0;
+  
 }
 
 #app {
@@ -105,8 +121,10 @@ footer {
   align-items: center;
   border: 8px ridge lightgray;
   justify-content: center;
-  width: 100%;
+  width: 100vw;
 }
+
+
 
 #bottom {
   grid-area: footer;
@@ -150,6 +168,8 @@ nav a:first-of-type {
 #logOut{
   cursor: pointer;
 }
+
+
 </style>
 
 <script>
