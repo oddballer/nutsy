@@ -10,10 +10,10 @@
         </article>
     </div>
     
-        <form name="chatFields" id="inputFields" v-on:submit.prevent="addChat(this.chat)">
+        <form name="chatFields" id="inputFields" v-on:submit.prevent="addChat(this.chat)" autocomplete="off">
             <input type="text" id="content" placeholder="say something..." v-model="chat.content" required>
             <button id="chatSubmit" type="submit">
-                <img id="saveImg" src="/floppy.png" alt="saveBtn" height="24" width="24">
+                <img id="saveImg" src="/channels-3.png" alt="saveBtn" height="24" width="24">
             </button>
         </form>
     <audio id="loadSfx" src="https://audio.jukehost.co.uk/m5mH7M1xzybl0GdKTlJJtwC6yl8d9DgW"></audio>
@@ -101,7 +101,7 @@ export default {
 .content{
 font-size: 12px;
 text-align: left;
-font: italic 1.2em "Fira Sans", serif;
+font: 1.4em "Fira Sans", serif;
 /* border: 8px ridge lightgray; */
 padding: 10px;
 padding-left: 20px;
@@ -122,6 +122,7 @@ grid-area: logcontent;
     grid-template-areas: 
     "log"    
     "input";
+    /* background-color: #e7d6c4; */
 
 }
 #inputFields{
@@ -132,6 +133,9 @@ grid-area: logcontent;
     grid-template-columns: 95% 5%;
     grid-template-areas: 
     "content chatSubmit";
+    /* background-color: #91d0d8; */
+    
+
 
 }
 #chatLog{
@@ -140,6 +144,9 @@ grid-area: logcontent;
     position: relative;
     flex-direction: column-reverse;
     display: flex;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: lightgray;
+
     
 }
 #chatSubmit{

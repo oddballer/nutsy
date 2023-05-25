@@ -1,12 +1,27 @@
 <template>
   <div id="topper">
     <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/dev">Dev</RouterLink>
-        <img id="logOut" src="/logout.png" alt="logout" height="16" width="16" v-on:click="logOff" v-if="authStore.token != ''">
+      <img v-on:click="playMusic" alt="nutsy logo" class="logo" src="https://static.wikia.nocookie.net/finalfantasy/images/3/33/ClanNutsy.png" width="200" height="133" />
     </nav>
-    <header>
-      <img v-on:click="playMusic" alt="nutsy logo" class="logo" src="https://static.wikia.nocookie.net/finalfantasy/images/3/33/ClanNutsy.png" width="240" height="160" />
+    <header v-if="authStore.token != ''">
+      <div class="navBtn">
+        <!-- <RouterLink to="/" > -->
+        <img id="homeBtn" src="/world-4.png" alt="home">
+        Home
+      <!-- </RouterLink> -->
+      </div>
+      <div class="navBtn">
+        <!-- <RouterLink to="/dev" > -->
+        <img id="devBtn" src="/internet_options-0.png" alt="dev">
+        Dev
+      <!-- </RouterLink> -->
+      </div>
+      
+      <div class="navBtn">
+        <img id="logoutBtn" src="/standby_monitor_moon_cool-4.png" alt="logout" v-on:click="logOff" v-if="authStore.token != ''">
+        Logout
+      </div>
+      
     </header>
   </div>
 
@@ -26,7 +41,7 @@
         <img src="/bar2001.gif" alt="gameFaqs">
       </a>
       <img src="/frontpage-1996.gif" alt="made with frontpage">
-      <audio id="music" src="https://audio.jukehost.co.uk/FUx1r78wxSbDlsaZ1KJajh2PZaBA46fK" type="audio/mpeg" loop></audio>
+      <audio id="music" src="https://audio.jukehost.co.uk/AsU2G82R0rMe5rNLL10jSHZqke3JcfZ0" type="audio/mpeg" loop></audio>
       <img src="https://hitwebcounter.com/counter/counter.php?page=8523078&style=0040&nbdigits=5&type=page&initCount=0" Alt="web counter"/>
       <img src="/mac-mall-1998.gif" alt="mac-mall-offer">
       <img src="/clickconf.gif" height="48" alt="esrb" id="esrb" v-on:click="say('thank you for confirming your privacy')">
@@ -59,13 +74,14 @@ footer {
   grid-area: topper;
   height: fit-content;
   width: 100%;
+  text-align: center;
 }
 
 .logo{
   border-left: 8px ridge lightgray;  
   border-right: 8px ridge lightgray;
   cursor: pointer;
-
+  
 }
 
 body {
@@ -74,7 +90,6 @@ body {
 }
 
 #app {
-  margin: 0;
   background-image: url("/water.gif");
   height: 100vh;
   width: 100vw;
@@ -99,12 +114,40 @@ body {
 
 header {
   height: fit-content;
+  padding: 10px;
   grid-area: header;
   display: flex;
+  justify-content: space-around;
+  border-right: 8px ridge lightgray;
+  border-left: 8px ridge lightgray;
+  border-bottom: 8px ridge lightgray;
+
+
+  /* background-image: url(/sandTexture.png); */
+  /* background-color: #e7d6c4; */
+
+}
+
+header div {
+  display: flex;
+  height: 75px;
+  width: 75px;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  border: 8px ridge lightgray;
 }
+
+header img {
+  height: 50px;
+  width: 50px;
+}
+
+.navBtn {
+  text-decoration: none;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 #mainView {
   grid-area: main;
   width: 100%;
@@ -124,7 +167,6 @@ footer {
 }
 
 
-
 #bottom {
   grid-area: footer;
   display: flex;
@@ -136,12 +178,12 @@ footer {
 
 nav {
   grid-area: nav;
-  height: 25px;
+  height: fit-content;
   font-size: 12px;
   text-align: center;
   font: italic 1.2em "Fira Sans", serif;
   border: 8px ridge lightgray;
-  background-color: #91d0d8;
+  /* background-color: #91d0d8; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,10 +206,9 @@ nav a {
 nav a:first-of-type {
   border: 0;
 }
-#logOut{
+#logoutBtn{
   cursor: pointer;
 }
-
 
 </style>
 
