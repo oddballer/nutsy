@@ -4,7 +4,8 @@
     <div id="chatLog">
         <article v-for="chat in chats" v-bind:key="chat.chat_id">
             <div class="content">
-               <div id="logUsername">{{ chat.username }}:</div>
+               <div id="logUsername">{{ chat.username }} <div id="logTs"> @ {{ chat.ts }} </div> </div>
+               
                <div id="logContent">{{ chat.content }}</div>
             </div>
         </article>
@@ -46,6 +47,11 @@ export default {
   },
 
     methods: {
+
+        prepTimestamps(){
+            
+        },
+
         getChat(){
             this.isLoading = true;
             ChatService.getChat().then((response) => {
@@ -63,6 +69,7 @@ export default {
                 }
 
             })
+
         },
 
         addChat(chat) {
@@ -107,14 +114,18 @@ padding: 10px;
 padding-left: 20px;
 display: grid;
 grid-template-areas: 
-"loguser logcontent";
-grid-template-columns: 3fr 7fr;
+"loguser"
+"logcontent";
+grid-template-columns: 1fr;
 }
 #logUsername{
 grid-area: loguser;
 }
 #logContent{
 grid-area: logcontent;
+}
+#logTs{
+    font-size: 10px;
 }
 #chatWindow{
     display: grid;
