@@ -31,7 +31,7 @@
     <RouterView class="view"/>
   </div>
 
-  <nav v-if="authStore.token != ''">
+  <nav v-if="authStore.token != ''" @click="navDeselect($event)" id="navContainer">
 
     <div class="navBtn" v-on:click="navSelect($event)" id="homeBtn">
         <!-- <RouterLink to="/" > -->
@@ -307,6 +307,12 @@ export default {
 
           event.currentTarget.classList.add('navBtnSelected');
           this.navSelected.push(event.currentTarget.id); 
+        },
+        navDeselect(event){
+          if (event.target.id == "navContainer"){
+            document.getElementById(this.navSelected[0]).classList.remove("navBtnSelected");
+            this.navSelected = [];
+          }
         },
         navRoute(id){
           // homeBtn devBtn logoutBtn
