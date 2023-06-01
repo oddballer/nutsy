@@ -309,7 +309,7 @@ export default {
           this.navSelected.push(event.currentTarget.id); 
         },
         navDeselect(event){
-          if (event.target.id == "navContainer"){
+          if (event.target.id == "navContainer" && this.navSelected.length > 0){
             document.getElementById(this.navSelected[0]).classList.remove("navBtnSelected");
             this.navSelected = [];
           }
