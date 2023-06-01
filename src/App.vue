@@ -35,20 +35,20 @@
 
     <div class="navBtn" v-on:click="navSelect($event)" id="homeBtn">
         <!-- <RouterLink to="/" > -->
-        <img src="/world-4.png"  alt="home">
+        <img draggable="false" src="/world-4.png"  alt="home">
         Home
       <!-- </RouterLink> -->
       </div>
 
     <div class="navBtn" v-on:click="navSelect($event)" id="devBtn">
         <!-- <RouterLink to="/dev" > -->
-        <img src="/internet_options-0.png"  alt="dev">
+        <img draggable="false" src="/internet_options-0.png"  alt="dev">
         Dev
       <!-- </RouterLink> -->
       </div>
 
       <div class="navBtn" v-on:click="navSelect($event)" id="logoutBtn">
-        <img src="/standby_monitor_moon_cool-4.png" alt="logout" >
+        <img draggable="false" src="/standby_monitor_moon_cool-4.png" alt="logout" >
         Logout
       </div>
   </nav>
@@ -180,6 +180,7 @@ header {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   cursor: default;
   padding: 10px;
+  user-select: none;
 }
 
 .navBtnSelected {
