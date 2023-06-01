@@ -214,7 +214,7 @@ nav {
   grid-area: nav;
   font-size: 12px;
   text-align: center;
-  font: italic 1.2em "Fira Sans", serif;
+  font: 1.0em "Fira Sans", serif;
   /* background-color: #91d0d8; */
   display: flex;
   flex-direction: column;
