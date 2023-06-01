@@ -23,6 +23,7 @@
 </template>
 
 <script>
+import { onUpdated } from 'vue';
 import ChatService from '../services/ChatService';
 import { useAuthenticationStore } from '../stores/AuthenticationStore'
 
@@ -48,14 +49,17 @@ export default {
 
     methods: {
 
-        prepTimestamps(){
-            
+        prepTimestamps(chats){
+            chats.forEach((i)=> {
+                i.ts = new Date(i.ts);
+            });
         },
 
         getChat(){
             this.isLoading = true;
             ChatService.getChat().then((response) => {
                 this.chats = response.data;
+                this.prepTimestamps(this.chats);
                 this.isLoading = false;
             }).catch((error) => {
                 this.isLoading = false;
@@ -68,7 +72,7 @@ export default {
                     this.$router.push("/login");
                 }
 
-            })
+            });
 
         },
 
@@ -99,7 +103,7 @@ export default {
 
     mounted(){
         this.getChat();
-    }
+    },
 
 }
 </script>
@@ -116,15 +120,16 @@ display: grid;
 grid-template-areas: 
 "loguser logTs"
 "logcontent logcontent";
-grid-template-columns: 3fr 5fr;
+grid-template-columns: 1fr;
 }
 #logUsername{
 grid-area: loguser;
 font: bold;
 display: flex;
 align-items: center;
-justify-content: space-around;
+justify-content: start;
 color: white;
+margin-bottom: 1%;
 }
 #logContent{
 grid-area: logcontent;
@@ -132,6 +137,7 @@ color: lightgray;
 }
 #logTs{
     font-size: 12px;
+    margin-left: 1%;
 }
 #chatWindow{
     display: grid;

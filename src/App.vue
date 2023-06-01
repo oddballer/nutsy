@@ -93,7 +93,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: 1.4em bold;
+  font: 1.2em bold;
   white-space: pre;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
