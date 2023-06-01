@@ -23,32 +23,32 @@
     <!-- </header> -->
   </div>
 
-  <div id="newsContainer" v-if="authStore.token != ''">
-    <NewsBar/>
+  <div id="commsContainer" v-if="authStore.token != ''">
+    <!-- <Comms/> -->
   </div>
   
   <div id="mainView">
     <RouterView class="view"/>
   </div>
 
-  <nav>
+  <nav v-if="authStore.token != ''">
 
-    <div class="navBtn">
+    <div class="navBtn" v-on:click="navSelect($event)" id="homeBtn">
         <!-- <RouterLink to="/" > -->
-        <img id="homeBtn" src="/world-4.png" alt="home">
+        <img src="/world-4.png"  alt="home">
         Home
       <!-- </RouterLink> -->
       </div>
 
-    <div class="navBtn">
+    <div class="navBtn" v-on:click="navSelect($event)" id="devBtn">
         <!-- <RouterLink to="/dev" > -->
-        <img id="devBtn" src="/internet_options-0.png" alt="dev">
+        <img src="/internet_options-0.png"  alt="dev">
         Dev
       <!-- </RouterLink> -->
       </div>
 
-      <div class="navBtn">
-        <img id="logoutBtn" src="/standby_monitor_moon_cool-4.png" alt="logout" v-on:click="logOff" v-if="authStore.token != ''">
+      <div class="navBtn" v-on:click="navSelect($event)" id="logoutBtn">
+        <img src="/standby_monitor_moon_cool-4.png" alt="logout" >
         Logout
       </div>
   </nav>
@@ -93,14 +93,14 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: bold 1.4em "Fira Sans";
+  font: bold 1.2em "Fira Sans";
   white-space: pre;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   
 }
 
-#newsContainer{
+#commsContainer{
     border: 8px ridge lightgray;
 }
 
@@ -183,7 +183,8 @@ header {
 }
 
 .navBtnSelected {
-
+  filter: opacity(50%);
+  background: navy;
 }
 
 #mainView {
@@ -248,6 +249,7 @@ import { RouterLink, RouterView } from 'vue-router'
 import { useAuthenticationStore } from './stores/AuthenticationStore'
 import NewsBar from './components/NewsBar.vue'
 
+
 export default {
     setup() {
         const authStore = useAuthenticationStore();
@@ -258,6 +260,7 @@ export default {
     data() {
         return {
             playing: false,
+            navSelected: [],
         };
     },
     mounted() {
@@ -286,8 +289,39 @@ export default {
             this.authStore.LOGOUT();
             this.$router.push("/login");
         },
+        navSelect(event){
+          if (event.currentTarget.classList.contains("navBtnSelected")){
+            let id = event.currentTarget.id;
+            this.navRoute(id);
+            document.getElementById(this.navSelected[0]).classList.remove("navBtnSelected");
+            this.navSelected = [];
+            return;
+          }
+
+          if (this.navSelected.length > 0){
+
+            document.getElementById(this.navSelected[0]).classList.remove("navBtnSelected");
+            this.navSelected = [];
+          }
+
+          event.currentTarget.classList.add('navBtnSelected');
+          this.navSelected.push(event.currentTarget.id); 
+        },
+        navRoute(id){
+          // homeBtn devBtn logoutBtn
+          if (id == "homeBtn"){
+            this.$router.push("/");
+          }
+          else if (id == "devBtn"){
+            // not implemented
+            // this.$router.push("/");
+          }
+          else if (id == "logoutBtn"){
+            this.logOff();
+          }
+        }
     },
-    components: { NewsBar }
+    components: { NewsBar}
 }
 
 </script>
