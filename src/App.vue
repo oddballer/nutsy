@@ -93,7 +93,7 @@ footer {
   display: flex;
   align-items: center;
   justify-content: center;
-  font: bold 1.2em "Fira Sans";
+  font: 1.4em bold;
   white-space: pre;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;

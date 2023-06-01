@@ -4,7 +4,7 @@
     <div id="chatLog">
         <article v-for="chat in chats" v-bind:key="chat.chat_id">
             <div class="content">
-               <div id="logUsername">{{ chat.username }} <div id="logTs"> @ {{ chat.ts }} </div> </div>
+               <div id="logUsername">{{ chat.username }} <span id="logTs"> @ {{ chat.ts }} </span> </div>
                
                <div id="logContent">{{ chat.content }}</div>
             </div>
@@ -108,24 +108,30 @@ export default {
 .content{
 font-size: 12px;
 text-align: left;
-font: 1.4em "Fira Sans", serif;
+font: 1.4em monospace, serif;
 /* border: 8px ridge lightgray; */
 padding: 10px;
 padding-left: 20px;
 display: grid;
 grid-template-areas: 
-"loguser"
-"logcontent";
-grid-template-columns: 1fr;
+"loguser logTs"
+"logcontent logcontent";
+grid-template-columns: 3fr 5fr;
 }
 #logUsername{
 grid-area: loguser;
+font: bold;
+display: flex;
+align-items: center;
+justify-content: space-around;
+color: white;
 }
 #logContent{
 grid-area: logcontent;
+color: lightgray;
 }
 #logTs{
-    font-size: 10px;
+    font-size: 12px;
 }
 #chatWindow{
     display: grid;
@@ -156,7 +162,7 @@ grid-area: logcontent;
     flex-direction: column-reverse;
     display: flex;
     text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-    color: lightgray;
+    color: white;
 
     
 }
