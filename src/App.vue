@@ -179,7 +179,7 @@ header {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   cursor: default;
-  padding: 10px;
+  padding: 5px;
   user-select: none;
 }
 
