@@ -102,6 +102,9 @@ footer {
 
 #commsContainer{
     border: 8px ridge lightgray;
+    grid-area: comms;
+    height: 90%;
+    width: fit-content;
 }
 
 .footbox {
@@ -139,9 +142,9 @@ body {
   justify-items: center;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
-  "newsBar topper nav"
-  "newsBar main nav"
-  "newsBar footer nav";
+  ". topper nav"
+  "comms main nav"
+  ". footer nav";
 
 }
 

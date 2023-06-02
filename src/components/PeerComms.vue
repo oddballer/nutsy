@@ -1,11 +1,13 @@
 <template>
     <div id="comms">
-        <span>Online</span>
+        <span id="online">Online</span>
         <br>
-        <div class="peer" v-for="user in users" v-bind:key="user">
-            {{ user }}
+        <div id="peerContainer">
+            <div class="peer" v-for="user in users" v-bind:key="user">
+                {{ user }}
+            </div>
+        <br>
         </div>
-        <br>
         <div id="joinButton" @click="joinChat">
         <img src="/user_world-1.png" alt="join chat">
         </div>
@@ -63,16 +65,24 @@ export default {
 </script>
 
 <style>
+#online{
+    font: 1.0em "Fira Sans", serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: white;
+}
 #comms{
     height: 100%;
+    padding: 10px;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px;
 
-    
-
+}
+#peerContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    height: 83%;
+    overflow-y: hidden;
 }
 #joinButton{
     display: flex;
