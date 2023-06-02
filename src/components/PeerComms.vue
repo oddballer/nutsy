@@ -8,7 +8,7 @@
             </div>
         <br>
         </div>
-        <div id="joinButton" @click="joinChat">
+        <div id="joinButton" @click="joinChat" title="Join Voice Chat">
         <img src="/user_world-1.png" alt="join chat">
         </div>
     </div>
@@ -106,5 +106,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 </style>
