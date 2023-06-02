@@ -42,6 +42,7 @@ export default {
     data(){
         return {
         users: [],
+        connections: [],
     };
     },
     methods: {
@@ -56,12 +57,22 @@ export default {
             })
         },
         joinChat(){
+            this.users.forEach((user) =>{
+                var conn = this.peer.connect(user);
 
-        }
-    },
+                conn.on('open', function() {
+	            // Receive messages
+	            conn.on('data', function(data) {
+	            console.log('Received', data);
+	
+                    });
+                        });
+                            });
+                },
     
 
-}
+            }
+        }
 </script>
 
 <style>
@@ -75,6 +86,7 @@ export default {
     padding: 10px;
     display: flex;
     flex-direction: column;
+    text-align: center;
 
 }
 #peerContainer{
@@ -83,6 +95,12 @@ export default {
     justify-content: start;
     height: 83%;
     overflow-y: hidden;
+    text-align: start;
+    overflow-x: hidden;
+
+}
+.peer{
+    margin-top: 5%;
 }
 #joinButton{
     display: flex;
