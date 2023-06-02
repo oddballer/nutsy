@@ -1,9 +1,16 @@
 <template>
     <div id="comms">
-        <div class="peer" v-for="user in users" v-bind:key="user.id">
-            {{ user.id }}
+        <span>Online</span>
+        <br>
+        <div class="peer" v-for="user in users" v-bind:key="user">
+            {{ user }}
+        </div>
+        <br>
+        <div id="joinButton" @click="joinChat">
+        <img src="user_world-1.png" alt="join chat">
         </div>
     </div>
+   
   
 </template>
 
@@ -38,12 +45,16 @@ export default {
     methods: {
         getPeers(){
             PeerService.getPeers().then((response) =>{
+                console.log(response)
                 this.users = response.data;
             }).catch((error) =>{
                 const message = "Could not retrieve peers from server: ";
                 console.error(message + error);
 
             })
+        },
+        joinChat(){
+            
         }
     },
     
@@ -52,5 +63,20 @@ export default {
 </script>
 
 <style>
+#comms{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
 
+    
+
+}
+#joinButton{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 </style>
