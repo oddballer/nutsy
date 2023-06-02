@@ -142,9 +142,9 @@ body {
   justify-items: center;
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-areas:
-  ". topper nav"
+  ". topper ."
   "comms main nav"
-  ". footer nav";
+  ". footer .";
 
 }
 
