@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import { onUpdated } from 'vue';
 import ChatService from '../services/ChatService';
 import { useAuthenticationStore } from '../stores/AuthenticationStore'
 
@@ -94,7 +93,7 @@ export default {
           this.isLoading = false;
           const response = error.response;
           const message =
-            "Chatting was unsuccessful";
+            "Chatting was unsuccessful - " + response;
         //  this.$store.commit("SET_ERROR", message);
           console.error(message);
         });

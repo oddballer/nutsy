@@ -24,7 +24,7 @@
   </div>
 
   <div id="commsContainer" v-if="authStore.token != ''">
-    <!-- <Comms/> -->
+    <PeerComms/>
   </div>
   
   <div id="mainView">
@@ -248,6 +248,7 @@ nav a:first-of-type {
 <script>
 import { RouterLink, RouterView } from 'vue-router'
 import { useAuthenticationStore } from './stores/AuthenticationStore'
+import PeerComms from './components/PeerComms.vue'
 import NewsBar from './components/NewsBar.vue'
 
 
@@ -328,7 +329,7 @@ export default {
           }
         }
     },
-    components: { NewsBar}
+    components: { NewsBar, PeerComms}
 }
 
 </script>
