@@ -7,7 +7,7 @@
         </div>
         <br>
         <div id="joinButton" @click="joinChat">
-        <img src="user_world-1.png" alt="join chat">
+        <img src="/user_world-1.png" alt="join chat">
         </div>
     </div>
    
@@ -54,7 +54,7 @@ export default {
             })
         },
         joinChat(){
-            
+
         }
     },
     
