@@ -7,7 +7,7 @@
 
 <script>
 import { useAuthenticationStore } from '../stores/AuthenticationStore';
-import Chat from '../components/Chat.vue';
+import Chat from '../components/TextChat.vue';
 import LoginView from '../views/LoginView.vue';
 export default {
     setup() {

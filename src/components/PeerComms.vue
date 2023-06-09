@@ -58,15 +58,9 @@ export default {
         },
         joinChat(){
             this.users.forEach((user) =>{
-                var conn = this.peer.connect(user);
 
-                conn.on('open', function() {
-	            // Receive messages
-	            conn.on('data', function(data) {
-	            console.log('Received', data);
-	
-                    });
-                        });
+                var call = this.peer.call(user, mediaStream);
+                
                             });
                 },
     

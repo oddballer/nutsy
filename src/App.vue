@@ -31,7 +31,7 @@
     <RouterView class="view"/>
   </div>
 
-  <nav v-if="authStore.token != ''" @click="navDeselect($event)" id="navContainer">
+  <nav @click="navDeselect($event)" id="navContainer">
 
     <div class="navBtn" v-on:click="navSelect($event)" id="homeBtn">
         <!-- <RouterLink to="/" > -->
@@ -40,14 +40,19 @@
       <!-- </RouterLink> -->
       </div>
 
-    <div class="navBtn" v-on:click="navSelect($event)" id="devBtn">
+    <div class="navBtn" v-on:click="navSelect($event)" id="devBtn" v-if="authStore.token != ''">
         <!-- <RouterLink to="/dev" > -->
         <img draggable="false" src="/internet_options-0.png"  alt="dev">
         Dev
       <!-- </RouterLink> -->
       </div>
 
-      <div class="navBtn" v-on:click="navSelect($event)" id="logoutBtn">
+      <div class="navBtn" v-on:click="navSelect($event)" id="whatBtn">
+        <img draggable="false" src="/what.png" alt="about" >
+        What
+      </div>
+
+      <div class="navBtn" v-on:click="navSelect($event)" id="logoutBtn" v-if="authStore.token != ''">
         <img draggable="false" src="/standby_monitor_moon_cool-4.png" alt="logout" >
         Logout
       </div>
@@ -97,6 +102,7 @@ footer {
   white-space: pre;
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  user-select: none;
   
 }
 
@@ -249,11 +255,9 @@ nav a:first-of-type {
 </style>
 
 <script>
-import { RouterLink, RouterView } from 'vue-router'
+// import { RouterLink, RouterView } from 'vue-router'
 import { useAuthenticationStore } from './stores/AuthenticationStore'
 import PeerComms from './components/PeerComms.vue'
-import NewsBar from './components/NewsBar.vue'
-
 
 export default {
     setup() {
@@ -330,9 +334,12 @@ export default {
           else if (id == "logoutBtn"){
             this.logOff();
           }
+          else if (id == 'whatBtn'){
+            this.$router.push("/about")
+          }
         }
     },
-    components: { NewsBar, PeerComms}
+    components: {PeerComms}
 }
 
 </script>

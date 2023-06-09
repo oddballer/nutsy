@@ -1,6 +1,6 @@
 <template>
   <main class="about">
-    <h1>broken :)</h1>
+    <h1>nothing yet :)</h1>
   </main>
 </template>
 

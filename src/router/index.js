@@ -4,6 +4,7 @@ import LoginView from '../views/LoginView.vue'
 import LogoutView from '../views/LogoutView.vue'
 import RegisterView from '../views/RegisterView.vue'
 import DesktopView from '../views/DesktopView.vue'
+import AboutView from '../views/AboutView.vue'
 import { useAuthenticationStore } from '../stores/AuthenticationStore'
 
 const router = createRouter({
@@ -48,7 +49,15 @@ const router = createRouter({
       meta: {
         requiresAuth: false
       }
-    }
+    },
+    {
+      path: "/about",
+      name: "about",
+      component: AboutView,
+      meta: {
+        requiresAuth: false
+      }
+    },
   ]
 })
 

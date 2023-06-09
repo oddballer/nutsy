@@ -119,6 +119,7 @@ export default {
   grid-template-columns: 2fr 2fr 2fr;
   align-items: center;
   justify-items: center;
+  height: 100%;
 
 }
 #registerForm{
